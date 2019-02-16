@@ -5,7 +5,7 @@ const addEvent = (state: Event[], date: string, descr: string): Event[] => {
 }
 
 const updateEvent = (state: Event[], date: string, descr: string): Event[] => {
-  return state;
+  return state.map((e: Event) => (e.date === date) ? { ...e, descr} : e);
 }
 
 const deleteEvent = (state: Event[], date: string): Event[] => {
