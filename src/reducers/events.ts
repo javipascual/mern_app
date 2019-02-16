@@ -9,7 +9,7 @@ const updateEvent = (state: Event[], date: string, descr: string): Event[] => {
 }
 
 const deleteEvent = (state: Event[], date: string): Event[] => {
-  return state;
+  return state.filter((e: Event) => e.date !== date);
 }
 
 export default (state: Event[] = [], action : EventAction): Event[] => {

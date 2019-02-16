@@ -30,7 +30,7 @@ class App extends React.Component<Props, State> {
   }
 
   private renderEvent = (e: Event) => (
-    <List.Item>
+    <List.Item actions={[<a key="1" onClick={this.props.deleteEvent.bind(this, e.date)}>delete</a>]}>
       <List.Item.Meta
         title={e.date}
         description={e.descr}
