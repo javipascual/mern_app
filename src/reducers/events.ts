@@ -1,7 +1,7 @@
 import { Event, EventAction, Types } from "../types/events";
 
 const addEvent = (state: Event[], date: string, descr: string): Event[] => {
-  return state;
+  return [...state, { date, descr }];
 }
 
 const updateEvent = (state: Event[], date: string, descr: string): Event[] => {

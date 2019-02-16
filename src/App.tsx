@@ -1,25 +1,38 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import { Props } from "./types/app"
+import Button from 'antd/lib/button';
+import { Input } from 'antd';
 
-class App extends Component {
-  render() {
+type State = {
+  date: string;
+  descr: string;
+}
+
+class App extends React.Component<Props, State> {
+  constructor(props: Props){
+    super(props);
+    this.state = { date: "", descr: "" };
+
+    this.onDescrChange = this.onDescrChange.bind(this);
+    this.onButtonClick = this.onButtonClick.bind(this);
+  }
+
+  private onDescrChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const v = e.target.value; // cache value to use in async cb
+    this.setState(() => ({ date: new Date().toLocaleString(), descr: v }));
+  }
+
+  private onButtonClick = () => {
+    this.props.addEvent(this.state.date, this.state.descr);
+    this.setState(() => ({ date: "", descr: "" }));
+  }
+
+  public render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Input placeholder="Enter description" onChange={this.onDescrChange} />
+        <Button type="primary" onClick={this.onButtonClick}>Add</Button>
       </div>
     );
   }
