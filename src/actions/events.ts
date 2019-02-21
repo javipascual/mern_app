@@ -1,4 +1,4 @@
-import { AddEventAction, UpdateEventAction, DeleteEventAction, Types } from "../types/events";
+import { AddEventAction, FetchEventsAction, UpdateEventAction, DeleteEventAction, Event, Types } from "../types/events";
 
 export const addEvent = (date: string, descr: string): AddEventAction => ({
   type: Types.ADD_EVENT,
@@ -6,13 +6,12 @@ export const addEvent = (date: string, descr: string): AddEventAction => ({
   descr,
 });
   
-export const updateEvent = (date: string, descr: string): UpdateEventAction => ({
+export const updateEvent = (event: Event): UpdateEventAction => ({
   type: Types.UPDATE_EVENT,
-  date,
-  descr,
+  event,
 });
 
-export const deleteEvent = (date: string): DeleteEventAction => ({
+export const deleteEvent = (id: string): DeleteEventAction => ({
   type: Types.DELETE_EVENT,
-  date,
+  id,
 });

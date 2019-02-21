@@ -44,7 +44,7 @@ class App extends React.Component<Props, State> {
 
   private handleModalOk = () => {
     this.setState(state => ({ ...state, modal: { visible: false } }));
-    this.props.updateEvent(this.state.modal.event!.date, this.state.modal.event!.descr);
+    this.props.updateEvent(this.state.modal.event!);
   }
 
   private handleModalCancel = () => {
@@ -59,7 +59,7 @@ class App extends React.Component<Props, State> {
   private renderEvent = (e: Event) => (
     <List.Item actions={[
         <a key="1" onClick={this.onUpdateClick.bind(this, e)}>edit</a>,
-        <a key="2" onClick={this.props.deleteEvent.bind(this, e.date)}>delete</a>
+        <a key="2" onClick={this.props.deleteEvent.bind(this, e)}>delete</a>
       ]}>
       <List.Item.Meta
         title={e.date}

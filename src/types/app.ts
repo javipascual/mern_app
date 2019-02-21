@@ -1,3 +1,5 @@
+import { Event } from "../types/events"
+
 export type State = {
   events: Event[],
 };
@@ -9,8 +11,8 @@ export interface StateProps {
 
 export interface DispatchProps {
   addEvent: (date: string, descr: string) => void;
-  updateEvent: (date: string, descr: string) => void;
-  deleteEvent: (date: string) => void;
+  updateEvent: (event: Event) => void;
+  deleteEvent: (event: Event) => void;
 }
 
 export type Props = StateProps & DispatchProps;

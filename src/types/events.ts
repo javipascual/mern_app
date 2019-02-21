@@ -17,12 +17,11 @@ export type AddEventAction = BasicAction<Types.ADD_EVENT> & {
 };
 
 export type UpdateEventAction = BasicAction<Types.UPDATE_EVENT> & {
-  readonly date: string;
-  readonly descr: string;
+  readonly event: Event;
 };
 
 export type DeleteEventAction = BasicAction<Types.DELETE_EVENT> & {
-  readonly date: string;
+  readonly id: string;
 };
 
 export type EventAction = AddEventAction | UpdateEventAction | DeleteEventAction;
