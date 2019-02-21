@@ -1,5 +1,9 @@
 import { AddEventAction, FetchEventsAction, UpdateEventAction, DeleteEventAction, Event, Types } from "../types/events";
 
+export const fetchEvents = (): FetchEventsAction => ({
+  type: Types.FETCH_EVENTS,
+});
+
 export const addEvent = (date: string, descr: string): AddEventAction => ({
   type: Types.ADD_EVENT,
   date,

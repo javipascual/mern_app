@@ -25,7 +25,10 @@ class App extends React.Component<Props, State> {
     this.handleModalOk = this.handleModalOk.bind(this);
     this.handleModalCancel = this.handleModalCancel.bind(this);
     this.onModalDescrChange = this.onModalDescrChange.bind(this);
+  }
 
+  public componentDidMount() {
+    this.props.fetchEvents();
   }
 
   private onDescrChange = (e: React.ChangeEvent<HTMLInputElement>) => {

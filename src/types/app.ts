@@ -10,6 +10,7 @@ export interface StateProps {
 }
 
 export interface DispatchProps {
+  fetchEvents: () => void;
   addEvent: (date: string, descr: string) => void;
   updateEvent: (event: Event) => void;
   deleteEvent: (event: Event) => void;

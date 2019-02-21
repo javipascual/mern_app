@@ -6,10 +6,13 @@ export type Event = {
 };
 
 export const enum Types {
+  FETCH_EVENTS = "FETCH_EVENTS",
   ADD_EVENT = "ADD_EVENT",
   UPDATE_EVENT = "UPDATE_EVENT",
   DELETE_EVENT = "DELETE_EVENT",
 }
+
+export type FetchEventsAction = BasicAction<Types.FETCH_EVENTS> ;
 
 export type AddEventAction = BasicAction<Types.ADD_EVENT> & {
   readonly date: string;
