@@ -1,6 +1,7 @@
 import { BasicAction } from "./actions";
 
 export type Event = {
+  id?: string,
   date: string,
   descr: string,
 };
