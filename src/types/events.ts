@@ -8,12 +8,17 @@ export type Event = {
 
 export const enum Types {
   FETCH_EVENTS = "FETCH_EVENTS",
+  FETCH_EVENTS_SUCCESS = "FETCH_EVENTS_SUCCESS",
   ADD_EVENT = "ADD_EVENT",
   UPDATE_EVENT = "UPDATE_EVENT",
   DELETE_EVENT = "DELETE_EVENT",
 }
 
 export type FetchEventsAction = BasicAction<Types.FETCH_EVENTS> ;
+
+export type FetchEventsSuccessAction = BasicAction<Types.FETCH_EVENTS_SUCCESS> & {
+  readonly events: Event[];
+};
 
 export type AddEventAction = BasicAction<Types.ADD_EVENT> & {
   readonly date: string;
@@ -28,4 +33,5 @@ export type DeleteEventAction = BasicAction<Types.DELETE_EVENT> & {
   readonly id: string;
 };
 
-export type EventAction = AddEventAction | UpdateEventAction | DeleteEventAction;
+
+export type EventAction = FetchEventsSuccessAction;
