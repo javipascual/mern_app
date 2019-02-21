@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch: any): DispatchProps => ({
     dispatch(fetchEvents());
   },
   addEvent: (date: string, descr: string) => {
-   dispatch(addEvent(date, descr));
+    dispatch(addEvent(date, descr));
   },
   updateEvent: (event: Event) => {
     dispatch(updateEvent(event));
